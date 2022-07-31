@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="utf-8"?>
+<GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:background="@color/blanchedalmond"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+
+    <TextView
+        android:id="@+id/text_screen"
+        android:layout_width="match_parent"
+        android:layout_height="130dp"
+        android:layout_marginBottom="10dp"
+        android:maxLines="3"
+        android:autoSizeMaxTextSize="80dp"
+        android:autoSizeMinTextSize="2dp"
+        android:autoSizeTextType="uniform"
+         />
+
+    <TextView
+        android:id="@+id/result_screen"
+        android:layout_width="match_parent"
+        android:layout_height="130dp"
+        android:layout_marginBottom="10dp"
+        android:maxLines="1"
+        android:textSize="70dp"
+        />
+
+    <GridLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:columnCount="4"
+        android:rowCount="6">
+
+        <Button
+            android:textColor="@color/orange"
+            android:id="@+id/bracket_left"
+            android:layout_rowWeight="1"
+            android:background="@drawable/bt_selector"
+            android:text="("
+            android:layout_margin="3dp"
+            android:textSize="30dp" />
+
+        <Button
+            android:textColor="@color/orange"
+
+            android:id="@+id/bracket_right"
+            android:layout_rowWeight="1"
+            android:background="@drawable/bt_selector"
+            android:text=")"
+            android:layout_margin="3dp"
+            android:textSize="25sp" />
+
+        <Button
+            android:textColor="@color/orange"
+            android:id="@+id/divide"
+            android:layout_rowWeight="1"
+            android:layout_margin="3dp"
+            android:background="@drawable/bt_selector"
+            android:text="/"
+            android:textSize="25sp" />
+
+        <Button
+            android:textColor="@color/orange"
+            android:id="@+id/DEL"
+            android:layout_rowWeight="1"
+            android:layout_margin="3dp"
+            android:background="@drawable/bt_selector"
+            android:text="←"
+            android:textSize="25sp" />
+
+        <Button
+            android:textColor="@color/orange"
+            android:id="@+id/btn7"
+            android:background="@drawable/bt_selector"
+            android:text="7"
+            android:layout_margin="3dp"
+            android:textSize="25sp" />
+
+        <Button
+            android:id="@+id/btn8"
+            android:background="@drawable/bt_selector"
+            android:text="8"
+            android:textColor="@color/orange"
+            android:layout_margin="3dp"
+            android:textSize="25sp" />
+
+        <Button
+            android:textColor="@color/orange"
+            android:id="@+id/btn9"
+            android:background="@drawable/bt_selector"
+            android:text="9"
+            android:layout_margin="3dp"
+            android:textSize="25sp" />
+
+        <Button
+            android:textColor="@color/orange"
+            android:id="@+id/subtraction"
+            android:background="@drawable/bt_selector"
+            android:text="-"
+            android:layout_margin="3dp"
+            android:textSize="25sp" />
+
+        <Button
+            android:textColor="@color/orange"
+            android:id="@+id/btn4"
+            android:background="@drawable/bt_selector"
+            android:text="4"
+            android:layout_margin="3dp"
+            android:textSize="25sp" />
+
+        <Button
+            android:textColor="@color/orange"
+            android:id="@+id/btn5"
+            android:background="@drawable/bt_selector"
+            android:text="5"
+            android:layout_margin="3dp"
+            android:textSize="25sp" />
+
+        <Button
+            android:textColor="@color/orange"
+            android:id="@+id/btn6"
+            android:background="@drawable/bt_selector"
+            android:text="6"
+            android:layout_margin="3dp"
+            android:textSize="25sp" />
+
+        <Button
+            android:textColor="@color/orange"
+            android:id="@+id/multiplication"
+            android:background="@drawable/bt_selector"
+            android:text="*"
+            android:layout_margin="3dp"
+            android:textSize="25sp" />
+
+
+        <Button
+            android:textColor="@color/orange"
+            android:id="@+id/btn1"
+            android:background="@drawable/bt_selector"
+            android:text="1"
+            android:layout_margin="3dp"
+            android:textSize="25sp" />
+
+        <Button
+            android:textColor="@color/orange"
+            android:id="@+id/btn2"
+            android:background="@drawable/bt_selector"
+            android:text="2"
+            android:layout_margin="3dp"
+            android:textSize="25sp" />
+
+        <Button
+            android:textColor="@color/orange"
+            android:id="@+id/btn3"
+            android:background="@drawable/bt_selector"
+            android:text="3"
+            android:layout_margin="3dp"
+            android:textSize="25sp" />
+
+
+        <Button
+            android:textColor="@color/orange"
+            android:id="@+id/add"
+            android:background="@drawable/bt_selector"
+            android:text="+"
+            android:layout_rowSpan="2"
+            android:layout_gravity="fill"
+            android:layout_margin="3dp"
+            android:textSize="25sp" />
+
+        <Button
+            android:textColor="@color/orange"
+            android:id="@+id/point"
+            android:background="@drawable/bt_selector"
+            android:text="."
+            android:layout_margin="3dp"
+            android:textSize="25sp" />
+
+        <Button
+            android:textColor="@color/orange"
+            android:id="@+id/btn0"
+            android:background="@drawable/bt_selector"
+            android:text="0"
+            android:layout_columnSpan="2"
+            android:layout_gravity="fill"
+            android:layout_margin="3dp"
+            android:textSize="25sp" />
+
+        <Button
+            android:textColor="@color/orange"
+            android:id="@+id/AC"
+            android:background="@drawable/bt_selector"
+            android:text="C"
+            android:layout_columnSpan="2"
+            android:layout_gravity="fill"
+            android:layout_margin="3dp"
+            android:textSize="25sp" />
+        <Button
+            android:textColor="@color/orange"
+            android:id="@+id/result"
+            android:background="@drawable/bt_selector"
+            android:text="="
+            android:layout_columnSpan="2"
+            android:layout_gravity="fill"
+            android:layout_margin="3dp"
+            android:textSize="25sp" />
+    </GridLayout>
+</GridLayout>
