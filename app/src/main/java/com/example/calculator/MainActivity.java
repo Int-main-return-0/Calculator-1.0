@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
@@ -122,9 +123,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         }
                         edit_screen.setText(text);
                     }
-                if((text.length() - 1) == '/')
+                 if((text.charAt(text.length() - 1)) == '/')
                 {
-                    result_screen.setText("错误");
+                    text += "0";
+                    flag = true;
+                    edit_screen.setText(text);
                 }
                     break;
             case id.btn1:
@@ -166,9 +169,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 edit_screen.setText(text);
                 break;
             case id.add:
-                if(text.length() == 0){
-                    text += "0+";
+
+                if (text.length() == 0){
+                    text = "";
+                    break;
                 }
+//                if(text.charAt(text.length() - 1) == '0' && text.charAt(text.length() -2) == '/'){
+//                    text = text.substring(0,text.length() - 2);
+//                    Toast.makeText(this, "除数不能为0，请重新输入", Toast.LENGTH_SHORT).show();
+//                }
 
                 if(text.length() != 0 && text.charAt(text.length() - 1) == '.' )
                         text += "0+";
@@ -176,21 +185,27 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 if (Character.isDigit(text.charAt(text.length() - 1)) ||  text.charAt(text.length() -1) == ')' ){
                         text += "+";
                 }
-                else if(text.charAt(text.length() - 1) != '.' && text.charAt(text.length() - 1) != '(' && !Character.isDigit(text.charAt(text.length() - 1))){
 
+                if(  text.length() != 1 && text.charAt(text.length() - 1) != '.' && text.charAt(text.length() - 1) != '(' && !Character.isDigit(text.charAt(text.length() - 1))){
                     text = text.substring(0, text.length() - 1) + '+';
                 }
+                //     判断是否除0
+                text =  isDivZero(text);
                 edit_screen.setText(text);
                 break;
 
             case id.subtraction:
+
+                if(text.charAt(text.length() - 1) == '0' && text.charAt(text.length() -2) == '/'){
+                    text = text.substring(0,text.length() - 2);
+                    Toast.makeText(this, "除数不能为0，请重新输入", Toast.LENGTH_SHORT).show();
+                }
+
                 if(text.length() != 0 && text.charAt(text.length() - 1)  == '.')
                     text +="0-";
-                if(text.length() == 0 || text.charAt(text.length() - 1) == '('){
-//                    if(text.length() == 0){
-//                        text += "0-";
-//                    }else
-                    text +="0-";
+
+                else if(text.length() == 0 || text.charAt(text.length() - 1) == '('){
+                    text +="-";
                     sub_add = true;
                 }
     //            前面数字
@@ -198,41 +213,45 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     text += "-";
                 }
     //                前面运算符
-                else if(text.charAt(text.length() - 1) != '.' && text.charAt(text.length() - 1) != '(' && !Character.isDigit(text.charAt(text.length() - 1))){
+                else if(  text.charAt(text.length() - 1) != '.' && text.charAt(text.length() - 1) != '(' && !Character.isDigit(text.charAt(text.length() - 1))){
                     text = text.substring(0, text.length() - 1) + '-';
                 }
+
+                text =  isDivZero(text);
                     edit_screen.setText(text);
                     break;
 
             case id.multiplication:
                 if(text.length() == 0){
-                    text += "1*";
+                    text = "";
+                    break;
                 }
                 if(text.length() != 0 && text.charAt(text.length() - 1)  == '.')
                     text +="0*";
                 if(Character.isDigit(text.charAt(text.length() - 1)) ||  text.charAt(text.length() -1) == ')' ){
                     text += "*";
                 }
-                else if(text.charAt(text.length() - 1) != '.' && text.charAt(text.length() - 1) != '(' && !Character.isDigit(text.charAt(text.length() - 1)) ){
+                if( text.length() != 1 && text.charAt(text.length() - 1) != '.' && text.charAt(text.length() - 1) != '(' && !Character.isDigit(text.charAt(text.length() - 1)) ){
                     text = text.substring(0, text.length() - 1) + '*';
                 }
-
+                text =  isDivZero(text);
                 edit_screen.setText(text);
                 break;
 
             case id.divide:
-                if(text.length() == 0){
-                    text += "1/";
+                if (text.length() == 0){
+                    text = "";
+                    break;
                 }
                 if(text.length() != 0 && text.charAt(text.length() - 1)  == '.')
                     text +="0/";
                 if(Character.isDigit(text.charAt(text.length() - 1)) ||  text.charAt(text.length() -1) == ')' ){
                     text += "/";
                 }
-                else if(text.charAt(text.length() - 1) != '.' && text.charAt(text.length() - 1) != '(' && !Character.isDigit(text.charAt(text.length() - 1)) ){
+                else if( text.length() != 1 && text.charAt(text.length() - 1) != '.' && text.charAt(text.length() - 1) != '(' && !Character.isDigit(text.charAt(text.length() - 1)) ){
                     text = text.substring(0, text.length() - 1) + '/';
                 }
-
+                text =  isDivZero(text);
                 edit_screen.setText(text);
                 break;
 
@@ -327,5 +346,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
         }
     }
-
+    public  String isDivZero(String text){
+        if(text.charAt(text.length() - 2) == '0' && text.charAt(text.length() -3) == '/'){
+            text = text.substring(0,text.length() - 3);
+            Toast.makeText(this, "除数不能为0，请重新输入", Toast.LENGTH_SHORT).show();
+        }
+        return  text;
+    }
 }
