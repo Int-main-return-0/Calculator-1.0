@@ -20,9 +20,11 @@ public class InfixToSubfix {
         char[] ch = str.toCharArray();
         for (int i = 0, chLength = ch.length; i < chLength; i++) {
             char c = ch[i];
-            if (c == '+' || c == '-') {
+
+                //                  判断是否为负数
+            if (c == '+' || (c == '-' && i != 0 && ch[i - 1] != '(')) {
                 doSymbol(stack, list, c, 1);
-            } else if (c == '*' || c == '/') {
+            } else if (c == '*' || c == '/' ) {
                 doSymbol(stack, list, c, 2);
             } else if (c == '(') {
                 stack.push(c);
